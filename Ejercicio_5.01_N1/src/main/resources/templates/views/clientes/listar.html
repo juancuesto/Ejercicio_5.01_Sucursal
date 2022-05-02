@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+		<h1 th:text="${titulo}"></h1>
+			</div>
+	<div class="container">
+		<a class="btn btn-primary btn-sm"
+			th:href="@{/views/clientes/Sucursal/nuevo}"
+			 th:text="'Nueva Sucursal'" title="Crear nueva sucursal">
+			 </a>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Sucursal</th>
+					<th scope="col">Pais</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cl:${clientes}">
+					<th scope="row" th:text="${cl.idSucursal}"></th>
+					<td th:text="${cl.nomSucursal}"></td>
+					<td th:text="${cl.paisSucursal}"></td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+
+
+	</tbody>
+	</table>
+
+	</div>
+
+
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

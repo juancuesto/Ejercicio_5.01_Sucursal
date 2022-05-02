@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<th:block th:insert="Fragments/head :: head"></th:block>
+</head>
+<body>
+	<div class="container">
+		<div th:insert="Fragments/BodyHeader :: div"></div>
+
+
+		<div class="cloud-table-scroll">
+
+			<table class="table table-stripped ">
+				<thead>
+					<th>Id</th>
+					<th>Nombre Sucursal</th>
+					<th>Pais</th>
+					<th>Tipo</th>
+					<th colspan="3"></th>
+				</thead>
+				<tbody>
+					<tr th:each="sucursalDTO: ${DATA_SucursalessDtoLlista}">
+						<td th:text="${sucursatDTO.idSucursal}"></td>
+						<td th:text="${sucursatDTO.nomSucursall}"></td>
+						<td th:text="${sucursatDTO.paisSucursal}"></td>
+						<td th:text="${sucursatDTO.tipoSucursal}"></td>
+						<td><a class="btn btn-outline-info"
+							th:href="@{/ConsultaSucursal/__${sucursatDTO.idSucursal}__}"
+							role="button">Veure detall</a></td>
+						<td><a class="btn btn-outline-warning"
+							th:href="@{/ModificaLSucursal/__${sucursatDTO.idSucursal}__}" role="button">Editar</a></td>
+
+						<td><a class="btn btn-outline-danger"
+							th:href="@{/EliminaSucursal/__${sucursatDTO.idSucursal}__}"
+							role="button"
+							onclick="return confirm('Confirmi que vol eliminar aquest llibre')">Eliminar</a></td>
+					</tr>
+				</tbody>
+
+
+
+			</table>
+		</div>
+
+		<br> <a class="btn btn-outline-primary" th:href="@{/NovaSucursal}"
+			role="Button">Afegir Sucursal</a>
+
+	</div>
+
+</body>
+</html>
